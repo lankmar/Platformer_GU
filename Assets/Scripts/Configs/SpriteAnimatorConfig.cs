@@ -9,7 +9,8 @@ namespace Platformer.Config
         Walk = 1,
         Attack = 2,
         Jump = 3,
-        Death = 4
+        Fall = 4,
+        Death = 5
     }
     [CreateAssetMenu (fileName = "SpriteAnimatorConfig", menuName = "Configs / Animation", order = 1)]
     public class SpriteAnimatorConfig : ScriptableObject
