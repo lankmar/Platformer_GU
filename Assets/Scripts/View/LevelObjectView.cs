@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace Platformer.Veiw
+namespace Platformer.View
 {
     public class LevelObjectView : MonoBehaviour
     {
