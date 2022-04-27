@@ -51,6 +51,7 @@ namespace Platformer.Controllers
             if (_contactPooler.IsGrounded)
             {
                 _animatorController.StartAnimation(_view._spriteRenderer, Move ? AnimState.Walk : AnimState.Idle, true, _animationSpeed);
+                
                 if (_isJump && _view._rigidbody.velocity.y <= _jumpTresh)
                 {
                     _view._rigidbody.AddForce(Vector2.up * _jumpSpeed, ForceMode2D.Impulse);

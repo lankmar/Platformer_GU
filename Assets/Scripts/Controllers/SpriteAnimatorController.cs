@@ -11,7 +11,7 @@ namespace Platformer.Controllers
             public AnimState State;
             public List<Sprite> Sprites;
             public bool Loop;
-            public float Speed = 15;
+            public float Speed = 1;
             public float Counter = 0;
             public bool Sleep;
 
@@ -54,7 +54,6 @@ namespace Platformer.Controllers
                     animation.Sprites = _config.Sequences.Find(sequences => sequences.State ==state).Sprites;
                     animation.Speed = speed;
                 }
-            Debug.Log(animation.Counter);
             }
             else
             {

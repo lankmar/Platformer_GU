@@ -15,12 +15,12 @@ namespace Platformer.Controllers
         private float _delay = 1;
         private float _startSpeed = 15;
 
-        public BulletEmitterController(List<LevelObjectView> bulletViews, Transform transform)
+        public BulletEmitterController(List<LevelObjectView> bulletViews, Transform transform, LevelObjectView playerView)
         {
             _transform = transform;
             foreach (LevelObjectView bulletView in bulletViews)
             {
-                _bullets.Add(new BulletController(bulletView));
+                _bullets.Add(new BulletController(bulletView, playerView));
             }
         }
 
