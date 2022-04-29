@@ -5,6 +5,8 @@ using Platformer.Config;
 using Platformer.Controllers;
 using Platformer.Model;
 using UnityEngine;
+using Pathfinding;
+
 namespace Platformer
 {
     public class Main : MonoBehaviour
@@ -18,6 +20,7 @@ namespace Platformer
         [SerializeField] private CannonView _cannonView;
         [SerializeField] Camera _camera;
         [SerializeField] Transform _back;
+        [SerializeField] EnemyPatrol _enemyPatrol;
 
         private SpriteAnimatorController _playerAnimator;
         private SpriteAnimatorController _coinAnimator;
@@ -28,6 +31,7 @@ namespace Platformer
         private CameraController _cameraController;
         private CoinsController _coinsController;
         private Controllers.CharacterController _characterController;
+        private EnemyController _enemyController;
 
 
         void Awake()
@@ -44,6 +48,7 @@ namespace Platformer
             _cameraController = new CameraController(_playerView, Camera.main.transform);
             _coinsController = new CoinsController(_playerView, _coinViews, _coinAnimator);
             _characterController = new Controllers.CharacterController(_characterStatistics, _playerView);
+            _enemyController = new EnemyController(_enemyPatrol, _enemyPatrol.GetComponent<AIDestinationSetter>());
             //_paralaxManager = new ParalaxManager(_camera.transform, _back);
 
         }
@@ -59,6 +64,7 @@ namespace Platformer
             _cannonController.Update();
             _bulletEmitterController.Update();
             _cameraController.Update();
+            _enemyController.Update();
         }
     }
 }
