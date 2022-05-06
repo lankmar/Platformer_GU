@@ -21,6 +21,7 @@ namespace Platformer
         [SerializeField] Camera _camera;
         [SerializeField] Transform _back;
         [SerializeField] EnemyPatrol _enemyPatrol;
+        [SerializeField] private GeneratorLevelView _genView;
 
         private SpriteAnimatorController _playerAnimator;
         private SpriteAnimatorController _coinAnimator;
@@ -32,6 +33,7 @@ namespace Platformer
         private CoinsController _coinsController;
         private Controllers.CharacterController _characterController;
         private EnemyController _enemyController;
+        private GeneratorController _generatorController;
 
 
         void Awake()
@@ -50,6 +52,9 @@ namespace Platformer
             _characterController = new Controllers.CharacterController(_characterStatistics, _playerView);
             _enemyController = new EnemyController(_enemyPatrol, _enemyPatrol.GetComponent<AIDestinationSetter>());
             //_paralaxManager = new ParalaxManager(_camera.transform, _back);
+
+            _generatorController = new GeneratorController(_genView);
+            _generatorController.Init();
 
         }
 
